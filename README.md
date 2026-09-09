@@ -190,5 +190,4 @@ This skill is designed for direct integration by other AI agents:
 5. **Prioritized fix order**: 6-stage fix sequence prevents cosmetic churn when making changes
 6. **Replacement principles**: Guidelines for meaningful replacements, not just removals
 7. **Standardized reports**: Consistent direction/findings/needs verification/exemptions/validation format
-8. **Agent-ready**: Designed for direct invocation by other AI systems with predictable JSON output#   a n t i - u i - s l o p - g e n e r a t i o n -  
- 
+8. **Agent-ready**: Designed for direct invocation by other AI systems with predictable JSON output
