@@ -1,11 +1,13 @@
 ---
 name: anti-ai-slop-reference
-description: Detect and flag AI-generated low-quality or misleading content (slop) with comprehensive pattern catalog and tracking, expanded v3.1.0
-version: \"3.1.0\"
-argument-hint: \"[--scan] [--list] [--clear]\"
+description: Design reference contract of 110+ AI slop anti-patterns across 15 categories (V/T/C/L/M/P/I/Q/X/A/D/S/R/B/F/DM/H) for AI agents to read BEFORE generating UI. Contains forbidden-pattern catalogs, replacement principles, a pre-emit checklist, and the H1-H12 luxury hospitality contract (canvas over card, editorial numerals, jewel-dot dietary marks, video scrims, concierge dossier). Use before building or redesigning any UI, and always for luxury hospitality, Michelin-grade restaurant, or destination-venue work.
+version: "3.1.0"
+argument-hint: "[--scan] [--list] [--clear]"
 allowed-tools:
   - Read
   - Write
+  - Grep
+  - Glob
   - AskUserQuestion
 ---
 
@@ -46,7 +48,7 @@ Provide design reference for AI-assisted UI generation. Show pattern catalog wit
 </process>
 
 <pattern_catalog_summary>
-Total patterns: 100+
+Total patterns: 110+
 
 Visual: V1-V17 (17 patterns)
 Typography: T1-T15 (15 patterns)
@@ -63,6 +65,7 @@ Real-Content Stress Test: R1-R6 (6 patterns) NEW
 Responsive/Breakpoint Consistency: B1-B5 (5 patterns) NEW
 Interaction Feedback Audit: F1-F6 (6 patterns) NEW
 Dark Mode / Theme Parity: DM1-DM5 (5 patterns) NEW
+Hospitality / Luxury: H1-H12 (12 patterns) NEW
 
 </pattern_catalog_summary>
 
@@ -220,11 +223,35 @@ Dark Mode / Theme Parity: DM1-DM5 (5 patterns) NEW
 - DM4: Elevation/shadow system that relied on light-mode shadows now invisible or wrong on dark backgrounds
 - DM5: Spacing/layout drift between light and dark versions of the same component
 
-</pattern_catalog_summary>
+### Hospitality / Luxury Domain (H1-H12) NEW
+Scope: ultra-luxury hospitality, Michelin-grade restaurants, architectural destination venues only. Do not apply to SaaS, dashboards, dev tools, or aggregators.
+
+Forbidden patterns:
+- H1: Card-grid aggregation (rows of identical rounded cards: cropped image header + plain text body)
+- H2: Generic status pills (pill with pulsing green/red dot: "Open Today • Live", "Active Now")
+- H3: Fake chrome around media (mock window headers, tab strips with close buttons, "LIVE MAP" bars around embedded media)
+- H4: Raw embedded maps (unstyled Google Maps, pastel roads, yellow highways in a dark-themed luxury interface)
+- H5: Circular icon lists (icon-in-circle stacked beside address/contact/hours rows)
+- H6: Fintech sans pairing (Outfit, Poppins, Inter, DM Sans, Montserrat against a classical luxury serif)
+- H7: Hover-gated core content (dish photos, ingredients, pricing hidden entirely inside hover reveals)
+
+Mandatory design codes (violation = the required treatment is absent):
+- H8: Canvas over card (full-bleed backgrounds, architectural hairline borders `1px solid rgba(gold, 0.2)`, asymmetrical split viewports — not boxed containers)
+- H9: Editorial typographic scale (numbers, coordinates, labels treated as design elements: Roman or serif numerals "01"/"02", wide tracking 0.2em, small caps)
+- H10: Discreet dietary indicators (4-6px glowing jewel dots framed in glass discs, not heavy VEG/NON-VEG badges)
+- H11: Cinematic media integration (background video carries calibrated linear + vignette gradient scrims bleeding into the dark palette, no hard edges)
+- H12: Tabular concierge hierarchy (arrival, contact, venue data as a five-star concierge dossier: category key left, refined Cormorant Garamond serif values right)
+
+Supersession: in this domain the H-ID replaces its base-catalog equivalent — H1>L2/V6/I5, H2>V12/M4/M6, H4>C1/C4, H5>A4/L9, H6>T8/V14, H10>V12, H8>L4, H9 inverse of T5/L5. Report one, never both. H3, H7, and H11 have no base equivalent.
+
+Full design contract, pre-emit checklist, and exemption rules: `references/luxury-hospitality-protocol.md`.
+
+</pattern_catalog_detail>
 
 <references>
 - references/slop-patterns.md — 100+ AI slop phrase and design patterns with risk levels and corrections
 - references/content-quality-guidelines.md — Quality standards for content evaluation
+- references/luxury-hospitality-protocol.md — H1-H12 luxury hospitality design contract: forbidden patterns, mandatory codes, pre-emit checklist, exemption rules
 </references>
 
 <related_skills>
@@ -245,7 +272,7 @@ This skill is a **design reference only** — AI agents load it before generatin
 ### Reference Workflow for AI Agent:
 1. Load the skill via `/skill anti-ai-slop-reference`
 2. Read the pattern catalog from `references/slop-patterns.md`
-3. Check each design decision against all 100+ patterns (V1-V17, T1-T15, C1-C6, L1-L9, M1-M8, P1-P9, I1-I6, Q1-Q8, A1-A8, D1-D6, S1-S8, R1-R6, B1-B5, F1-F6, DM1-DM5)
+3. Check each design decision against all 110+ patterns (V1-V17, T1-T15, C1-C6, L1-L9, M1-M8, P1-P9, I1-I6, Q1-Q8, A1-A8, D1-D6, S1-S8, R1-R6, B1-B5, F1-F6, DM1-DM5, H1-H12)
 4. Apply replacement principles where patterns are detected
 5. Ensure hierarchy uses a proper font system (single family with strong hierarchy through size/weight/width/spacing; second family earns place through clear role)
 6. Verify colors carry defined jobs (brand, action, status, emphasis, surfaces); repeated decorative gradients/glows dilute those jobs
@@ -258,8 +285,9 @@ This skill is a **design reference only** — AI agents load it before generatin
 13. For each component, check responsive consistency (B1-B5): spacing/type-scale across breakpoints, touch targets, unintended horizontal scroll, disappearing functionality, fixed pixel widths
 14. For each interactive element, check interaction feedback audit (F1-F6): async actions with loading, destructive actions with confirmation, success feedback, double-submit prevention, form validation mapping, hover/focus/active states
 15. If dark mode detected, check dark mode parity (DM1-DM5): contrast re-checked independently, icons purpose-built not just inverted, semantic colors re-tuned, elevation/shadow system working, spacing/layout drift resolved
-12. Track exempted patterns if applicable (patterns that communicate real meaning or follow established brand)
-13. Generate UI that consciously avoids all 100+ anti-patterns
+16. If the target is luxury hospitality, fine dining, or a destination venue, apply the H1-H12 domain contract: resolve in order — canvas (H8), media (H3/H4/H11), structure (H1/H5/H12), type (H6/H9), indicators (H2/H10), content presence (H7). Skip this step entirely for non-hospitality targets
+17. Track exempted patterns if applicable (patterns that communicate real meaning or follow established brand)
+18. Generate UI that consciously avoids all 110+ anti-patterns
 
 ### When NOT to Use This Skill
 - Do NOT run `--scan` or `--fix` commands — this is a reference guide only
@@ -291,6 +319,7 @@ This skill is a **design reference only** — AI agents load it before generatin
 | Responsive Consistency | B1-B5 | Drift at certain breakpoints, touch targets <44/48px, unintended horizontal scroll, disappearing functionality, fixed pixel widths causing overflow/whitespace |
 | Interaction Feedback | F1-F6 | Async actions without loading, destructive actions without confirmation, success feedback missing, double-submit not prevented, form validation not mapped to field, missing hover/focus/active states |
 | Dark Mode / Theme Parity | DM1-DM5 | Contrast not re-checked in dark mode, inverted-only icons, semantic colors not re-tuned, elevation/shadow system wrong on dark, spacing/layout drift between light/dark |
+| Hospitality / Luxury | H1-H12 | Identical rounded cards with image headers, pulsing status pills, fake window chrome, raw pastel maps, circular icon lists, fintech sans against serif, hover-gated dishes/prices; missing full-bleed canvas, editorial numerals, jewel-dot dietary marks, video scrims, concierge dossier |
 
 ## For AI Agent Integration
 
